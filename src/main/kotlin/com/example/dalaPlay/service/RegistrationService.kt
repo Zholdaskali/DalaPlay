@@ -21,8 +21,14 @@ class RegistrationService(
         val event = eventRepository.findById(eventId)
 
         if (user.isPresent && event.isPresent) {
+            if (registrationRepository.existsByUserIdAndEventId(userId, eventId)) {
+                throw IllegalArgumentException("User is already registered for this event")
+            }
+
             val registration = Registration(user = user.get(), event = event.get())
             registrationRepository.save(registration)
+        } else {
+            throw IllegalArgumentException("User or Event not found")
         }
     }
 

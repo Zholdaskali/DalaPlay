@@ -19,8 +19,10 @@ class RegistrationController(
         return try {
             registrationService.addUserToEvent(request.userId, request.eventId)
             ResponseEntity.ok().build()
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.status(HttpStatus.CONFLICT).body(null)
         } catch (e: Exception) {
-            ResponseEntity.status(HttpStatus.BAD_REQUEST).build()
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null)
         }
     }
 
