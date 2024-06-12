@@ -29,6 +29,7 @@ class EventController(private val eventService: EventService) {
                 userId = request.userId,
                 eventDescription = request.eventDescription,
                 eventDate = request.eventDate,
+                eventTime = request.eventTime,
                 eventAddress = request.eventAddress,
                 imagePath = request.imagePath
             )

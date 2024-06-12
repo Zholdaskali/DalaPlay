@@ -3,6 +3,7 @@ package com.example.dalaPlay.model
 import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import java.time.LocalDate
+import java.time.LocalTime
 
 @Entity
 @Table(name = "t_events")
@@ -21,11 +22,14 @@ data class Event(
     @Column(name = "event_date", nullable = false)
     val eventDate: LocalDate,
 
+    @Column(name = "event_time", nullable = false)
+    val eventTime: LocalTime,
+
     @Column(name = "event_address", nullable = false)
     val eventAddress: String,
 
     @Column(name = "image_path", nullable = false)
-    val imagePath: String,
+    val imagePath: String?,
 
     @JsonIgnore
     @OneToMany(mappedBy = "event", cascade = [CascadeType.ALL], orphanRemoval = true)
