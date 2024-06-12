@@ -2,9 +2,9 @@ server:
   port: ${PORT:8080}
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/dala_play
-    username: postgres
-    password: erke
+    url: jdbc:postgresql://dpg-cpkf4dfsc6pc73es8rlg-a.singapore-postgres.render.com:5432/dala_play
+    username: dala_play_admin
+    password: jLhJaaiJ7x88p6u4KmPuuwbM7vr2UFDG
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
