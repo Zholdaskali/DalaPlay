@@ -13,24 +13,10 @@ class EventService(
 ) {
     fun getAllEvents(): List<Event> = eventRepository.findAll()
 
-    fun createEvent(
-        userId: Long,
-        eventDescription: String,
-        eventDate: LocalDate,
-        eventTime: LocalTime, // Добавлено время
-        eventAddress: String,
-        imagePath: String?
-    ): Event {
-        val user = userService.getById(userId) // Получаем пользователя по его ID
-        val event = Event(
-            user = user,
-            eventDescription = eventDescription,
-            eventDate = eventDate,
-            eventTime = eventTime, // Добавлено время
-            eventAddress = eventAddress,
-            imagePath = imagePath
-        )
-        return eventRepository.save(event) // Сохраняем событие в репозитории
+    fun createEvent(userId: Long, eventName: String, eventDescription: String, eventDate: LocalDate, eventTime: LocalTime, eventAddress: String, imagePath: String): Event {
+        val user = userService.getById(userId)
+        val event = Event(user = user, eventName = eventName, eventDescription = eventDescription, eventDate = eventDate, eventTime = eventTime, eventAddress = eventAddress, imagePath = imagePath)
+        return eventRepository.save(event)
     }
 
     fun deleteEventById(id: Long) {

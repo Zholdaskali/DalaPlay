@@ -16,6 +16,9 @@ data class Event(
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,
 
+    @Column(name = "event_name", nullable = false)
+    val eventName: String,
+
     @Column(name = "description")
     val eventDescription: String,
 

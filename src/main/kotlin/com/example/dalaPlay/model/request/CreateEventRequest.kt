@@ -5,6 +5,7 @@ import java.time.LocalTime
 
 data class CreateEventRequest(
     val userId: Long,
+    val eventName: String,
     val eventDescription: String,
     val eventDate: LocalDate,
     val eventTime: LocalTime,

@@ -27,6 +27,7 @@ class EventController(private val eventService: EventService) {
         return try {
             val event = eventService.createEvent(
                 userId = request.userId,
+                eventName = request.eventName,
                 eventDescription = request.eventDescription,
                 eventDate = request.eventDate,
                 eventTime = request.eventTime,
